@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AutogenDotNet": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AZURE_OPENAI_API_KEY": "test"
+      }
+    }
+  }
+}
