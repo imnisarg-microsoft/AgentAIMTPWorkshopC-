@@ -17,7 +17,7 @@ using System.Net.Http.Headers;
 TokenCredential managedIdentityCredential = new DefaultAzureCredential();
 
 var modelId = "gpt-4o";
-var endpoint = new Uri("https://dex-jpn-openai-stg.openai.azure.com/");
+var endpoint = new Uri("https://agentic-ai-workshop-openai.openai.azure.com");
 var openAIClient = new AzureOpenAIClient(endpoint, managedIdentityCredential);
 HttpClient httpClient = new();
 
@@ -44,14 +44,15 @@ GitHttpClient gitHttpClient = vssConnection.GetClient<GitHttpClient>();
 
 var adoService = new ADORepositoryService(projectHttpClient, gitHttpClient, httpClient);
 var repos = await adoService.IterateOverRepositoriesAsync("Windows Defender");
+/*
 foreach (GitRepository repo in repos)
 {
     Console.WriteLine("Repo ID, Name and URL : {0} {1} {2}", repo.Id, repo.Name, repo.RemoteUrl);
 }
 var file = await adoService.GetFileAsString("NotebookDeploymentController.cs", "Windows Defender", "MD.Common.Services.NotebookServices");
 Console.WriteLine(file);
-
-//await new OpenAIChatAgentDemo(openAIClient, modelId).RunAsync();
+*/
+await new OpenAIChatAgentDemo(openAIClient, modelId).RunAsync();
 //await new OpenAIAgentWithUserProxy(openAIClient, modelId).RunAsync();
 //await new AgentWithFunctionCall(openAIClient, modelId).RunAsync();
 //await new MiddlewareAgentDemo(openAIClient, modelId).RunAsync();
